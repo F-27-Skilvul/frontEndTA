@@ -1,41 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Ademyst-Rekomendasi Bacaan</title>
 
     <script>
-      tailwind.config = {
-        theme: {
-          container: {
-            center: true,
-            padding: "16px",
-          },
-          extend: {
-            colors: {
-              primary: "#06b6d4",
-              secondary: "#64748b",
-              dark: "#0f172a",
+        tailwind.config = {
+            theme: {
+                container: {
+                    center: true,
+                    padding: "16px",
+                },
+                extend: {
+                    colors: {
+                        primary: "#06b6d4",
+                        secondary: "#64748b",
+                        dark: "#0f172a",
+                    },
+                    screens: {
+                        "2xl": "1320px",
+                    },
+                },
             },
-            screens: {
-              "2xl": "1320px",
-            },
-          },
-        },
-      };
+        };
     </script>
-  </head>
-  
-  <body>
+</head>
 
+<body>
+    <!--Awal Navbar-->
+    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <div class="px-4">
+                <a href="#home" class="font-bold text-lg text-primary block py-6">Ademyst</a>
+            </div>
+            <div class="flex items-center md:order-2">
+                <button type="button"
+                    class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                    id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+                    data-dropdown-placement="bottom">
+                    <span class="sr-only">Open user menu</span>
+                    <img class="w-8 h-8 rounded-full" src="../img/agung.png" alt="user photo" />
+                </button>
+                <!-- Dropdown menu -->
+                <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+                    id="user-dropdown">
+                    <div class="px-4 py-3">
+                        <span class="block text-sm text-gray-900 dark:text-white">Andiagung</span>
+                        <span class="block text-sm text-gray-500 truncate dark:text-gray-400">andi112@gmail.com</span>
+                    </div>
+                    <ul class="py-2" aria-labelledby="user-menu-button">
+                        <li>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Pengaturan</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">keluar</a>
+                        </li>
+                    </ul>
+                </div>
+                <button data-collapse-toggle="navbar-user" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-user" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+                <ul
+                    class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="#"
+                            class="block py-2 pl-3 pr-4 text-white bg-primary rounded md:bg-transparent md:text-primary md:p-0 md:dark:text-primary"
+                            aria-current="page">Pelajari</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:primary dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Temukan</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Forum</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Berlangganan</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Bantuan</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Akhir navbar-->
+
+    <!-- awal rekomendasi bacaan -->
+    <section id="#" class="bg-slate-100">
+        <div class="text-center text-4xl font-bold py-9">
+            <h1 class="text-primary">Rekomendasi Bacaan</h1>
+        </div>
+
+        <div class=" grid grid-cols-3 gap-10 justify-items-center my-5">
+            <!-- awal card bacaan -->
+            <div
+                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 outline outline-transparent outline-offset-2 hover:outline-primary">
+                <a href="#"> <!--link ke preview bacaan-->
+                    <img class="rounded-t-lg mx-auto" src="../img/foto 1.png" alt="" />
+                </a>
+                <div class="p-5">
+                    <a href="#"> <!--link ke preview bacaan-->
+                        <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+                            Noteworthy technology acquisitions 2021
+                        </h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                        Here are the biggest enterprise technology acquisitions of 2021 so
+                        far, in reverse chronological order.
+                    </p>
+
+                    <div class="mt-3 grid grid-cols-3">
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-book"></i>
+                            <p class="text-xs">20 Topics</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-clock"></i>
+                            <p class="text-xs">28 hours of content</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-box-open"></i>
+                            <p class="text-xs">131 Lessons</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <p class="text-xs">1-3 months to complete</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- akhir card bacaan -->
+            <!-- awal card bacaan -->
+            <div
+                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 outline outline-transparent outline-offset-2 hover:outline-primary">
+                <a href="#">
+                    <img class="rounded-t-lg mx-auto" src="../img/foto 1.png" alt="" />
+                </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+                            Noteworthy technology acquisitions 2021
+                        </h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                        Here are the biggest enterprise technology acquisitions of 2021 so
+                        far, in reverse chronological order.
+                    </p>
+
+                    <div class="mt-3 grid grid-cols-3">
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-book"></i>
+                            <p class="text-xs">20 Topics</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-clock"></i>
+                            <p class="text-xs">28 hours of content</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-box-open"></i>
+                            <p class="text-xs">131 Lessons</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <p class="text-xs">1-3 months to complete</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- akhir card bacaan -->
+            <!-- awal card bacaan -->
+            <div
+                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 outline outline-transparent outline-offset-2 hover:outline-primary">
+                <a href="#">
+                    <img class="rounded-t-lg mx-auto" src="../img/foto 1.png" alt="" />
+                </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+                            Noteworthy technology acquisitions 2021
+                        </h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                        Here are the biggest enterprise technology acquisitions of 2021 so
+                        far, in reverse chronological order.
+                    </p>
+
+                    <div class="mt-3 grid grid-cols-3">
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-book"></i>
+                            <p class="text-xs">20 Topics</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-clock"></i>
+                            <p class="text-xs">28 hours of content</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-box-open"></i>
+                            <p class="text-xs">131 Lessons</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <p class="text-xs">1-3 months to complete</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- akhir card bacaan -->
+            <!-- awal card bacaan -->
+            <div
+                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 outline outline-transparent outline-offset-2 hover:outline-primary">
+                <a href="#">
+                    <img class="rounded-t-lg mx-auto" src="../img/foto 1.png" alt="" />
+                </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+                            Noteworthy technology acquisitions 2021
+                        </h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                        Here are the biggest enterprise technology acquisitions of 2021 so
+                        far, in reverse chronological order.
+                    </p>
+
+                    <div class="mt-3 grid grid-cols-3">
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-book"></i>
+                            <p class="text-xs">20 Topics</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-clock"></i>
+                            <p class="text-xs">28 hours of content</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-box-open"></i>
+                            <p class="text-xs">131 Lessons</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <p class="text-xs">1-3 months to complete</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- akhir card bacaan -->
+            <!-- awal card bacaan -->
+            <div
+                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 outline outline-transparent outline-offset-2 hover:outline-primary">
+                <a href="#">
+                    <img class="rounded-t-lg mx-auto" src="../img/foto 1.png" alt="" />
+                </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+                            Noteworthy technology acquisitions 2021
+                        </h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                        Here are the biggest enterprise technology acquisitions of 2021 so
+                        far, in reverse chronological order.
+                    </p>
+
+                    <div class="mt-3 grid grid-cols-3">
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-book"></i>
+                            <p class="text-xs">20 Topics</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-clock"></i>
+                            <p class="text-xs">28 hours of content</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-box-open"></i>
+                            <p class="text-xs">131 Lessons</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <p class="text-xs">1-3 months to complete</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- akhir card bacaan -->
+            <!-- awal card bacaan -->
+            <div
+                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 outline outline-transparent outline-offset-2 hover:outline-primary">
+                <a href="#">
+                    <img class="rounded-t-lg mx-auto" src="../img/foto 1.png" alt="" />
+                </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+                            Noteworthy technology acquisitions 2021
+                        </h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                        Here are the biggest enterprise technology acquisitions of 2021 so
+                        far, in reverse chronological order.
+                    </p>
+
+                    <div class="mt-3 grid grid-cols-3">
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-book"></i>
+                            <p class="text-xs">20 Topics</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-clock"></i>
+                            <p class="text-xs">28 hours of content</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-box-open"></i>
+                            <p class="text-xs">131 Lessons</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-gray-700 dark:text-gray-400">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <p class="text-xs">1-3 months to complete</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- akhir card bacaan -->
+
+        </div>
+    </section>
+
+    <!-- akhir rekomendasi bacaan -->
 
     <script src="../script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
-  </body>
+</body>
+
 </html>
