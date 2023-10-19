@@ -1,0 +1,138 @@
+{
+  "uuid": "baeac5f3-52a3-4c4c-b64a-b959753e8ea7",
+  "lastMigration": 28,
+  "name": "API",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "fc1dd63d-fc58-4f69-b76d-e2480ada274a",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "",
+      "responses": [
+        {
+          "uuid": "59d154ac-fdb1-47a8-9ef6-cb6058061ed3",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "98850f36-3186-471b-9ead-95e8f408cd3a",
+      "type": "http",
+      "documentation": "Authenticate with API",
+      "method": "post",
+      "endpoint": "login",
+      "responses": [
+        {
+          "uuid": "db41379e-3ee9-4375-b553-2bd79b216323",
+          "body": "{\r\n  \"name\": \"andi\",\r\n  \"email\": \"andiagung@gmail.com\",\r\n  \"password\": \"12345678\",\r\n  \"id\": \"3\"\r\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "",
+              "value": "{\"name\": \"andi\",     \"email\": \"andiagung@gmail.com\",     \"password\": \"12345678\"}",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "b0987ee1-8501-4c10-a0eb-7d4a4e2dfe22",
+          "body": "{\n  status: \"error\",\n  message: \"invalid login credentials\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "fc1dd63d-fc58-4f69-b76d-e2480ada274a"
+    },
+    {
+      "type": "route",
+      "uuid": "98850f36-3186-471b-9ead-95e8f408cd3a"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": []
+}
