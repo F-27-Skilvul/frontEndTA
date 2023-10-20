@@ -41,12 +41,26 @@
       </div>
       </a>
       <div class="flex items-center md:order-2">
-        <button type="button"
+        <button id="anonymous" type="button" style="display: none;">
+          <div class="flex flex-col flex-wrap lg:flex-row">
+            <div class="p-1 flex flex-col flex-wrap lg:flex-row">
+              <a href="daftar.html"
+                class="border-1 border-1 mb-3 rounded-xl border-primary bg-white py-3 px-8 text-base text-black transition duration-500 hover:opacity-80 hover:shadow-lg lg:mb-0 ">Daftar
+                Sekarang</a>
+            </div>
+            <div class="p-1 flex flex-col flex-wrap lg:flex-row">
+              <a href="masuk.html"
+                class="rounded-xl bg-primary py-3 px-6 text-base text-white transition duration-500 hover:opacity-80 hover:shadow-lg">Masuk</a>
+            </div>
+          </div>
+        </button>
+
+        <button id="member-login" type="button"
           class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
           id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
-          data-dropdown-placement="bottom">
+          data-dropdown-placement="bottom" style="display: none;">
           <span class="sr-only">Open user menu</span>
-          <img class="w-8 h-8 rounded-full" src="img/agung.png" alt="user photo">
+          <img class="w-8 h-8 rounded-full" src="" id="user-photo" alt="user photo" />
         </button>
         <!-- Dropdown menu -->
         <div

@@ -31,7 +31,7 @@ loginBtn.addEventListener('click', function (event) {
           
           localStorage.setItem("token", data.data.token)
             setTimeout(() => {
-                window.location.href = 'landingPage.html';
+                window.location.href = 'index.html';
             }, 2000);
         } else {
 
