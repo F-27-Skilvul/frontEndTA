@@ -112,7 +112,7 @@
 							class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 dark:text-white md:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Forum</a>
 					</li>
 					<li>
-						<a href="#"
+						<a href="berlangganan.html"
 							class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 dark:text-white md:dark:hover:text-primary dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Berlangganan</a>
 					</li>
 					<li>
@@ -126,8 +126,8 @@
 	<!--Akhir navbar-->
 
 	<!-- awal rekomendasi bacaan -->
-	<section id="anonymous" style="display: none;">
-		<h1>
+	<section id="anonymous-1" style="display: none;">
+		<h1 class="p-10 text-5xl font-bold text-primary text-center">
 			Login Terlebih Dahulu Untuk Melihat Rekomendasi
 		</h1>
 	</section>
@@ -437,16 +437,13 @@
 					</div>
 					<div>
 						<h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Akun</h2>
-						<ul class="text-gray-500 dark:text-gray-400 font-medium">
-							<li id="member-login" class="mb-4">
-								<a href="index.html" class="hover:underline">Keluar</a>
+						<ul id="member" class="text-gray-500 dark:text-gray-400 font-medium">
+							<li id="member-login1" class="mb-4">
+								<a href="masuk.html" class="hover:underline">Keluar</a>
 							</li>
-							<li id="anonymous" class="mb-4">
+							<li id="anonymous-2" class="mb-4">
 								<a href="masuk.html" class="hover:underline">Masuk</a>
 							</li>
-							<!-- <li>
-                <a href="#" class="hover:underline">Masuk</a>
-              </li> -->
 						</ul>
 					</div>
 				</div>
@@ -509,6 +506,9 @@
 	<script>
 		const token = localStorage.getItem("token");
 
+		const memberLogin1 = document.getElementById("member-login");
+		const anonymous = document.getElementById("anonymous-2");
+
 		const signOutBtn = document.getElementById("signout-btn");
 		console.log(signOutBtn)
 		signOutBtn.addEventListener('click', function (event) {
@@ -522,12 +522,18 @@
 			const memberLogin = document.getElementById("member-login");
 			memberLogin.style.display = "block"
 
+			const member = document.getElementById("member");
+			memberLogin.style.display = "block"
+
 			const rekomendasi = document.getElementById('rekomendasi');
 			rekomendasi.style.display = "block"
 
 			const userEmail = document.getElementById('user-email');
 			const userName = document.getElementById('user-username');
 			const userPhoto = document.getElementById("user-photo");
+
+			memberLogin.style.display = "block";
+			anonymous.style.display = "none";
 
 			fetch(`https://forum-api.dicoding.dev/v1/users/me`, {
 				method: 'GET',
@@ -551,8 +557,14 @@
 					errorNotification.style.display = 'block';
 				});
 		} else {
-			const anonymous = document.getElementById("anonymous")
+			const anonymous = document.getElementById("anonymous");
 			anonymous.style.display = "block"
+
+			const anonymous1 = document.getElementById("anonymous-1");
+			anonymous1.style.display = "block"
+
+			memberLogin.style.display = "none";
+			anonymous.style.display = "block";
 		}
 
 
