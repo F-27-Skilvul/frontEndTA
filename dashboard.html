@@ -167,7 +167,7 @@
       <tbody>
         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
           <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            Netowrk Engineer
+            Network Engineer
           </th>
           <td class="px-6 py-4">
             17
@@ -183,7 +183,8 @@
             </div>
           </th>
           <td class="px-6 py-4 text-right">
-            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Hapus</a>
+            <button href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+              onclick="deleteRow(this)">Hapus</button>
           </td>
         </tr>
         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -204,7 +205,8 @@
             </div>
           </th>
           <td class="px-6 py-4 text-right">
-            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+            <button href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+              onclick="deleteRow(this)">Hapus</button>
           </td>
         </tr>
         <tr class="bg-white dark:bg-gray-800">
@@ -225,7 +227,8 @@
             </div>
           </th>
           <td class="px-6 py-4 text-right">
-            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+            <button href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+              onclick="deleteRow(this)">Hapus</button>
           </td>
         </tr>
       </tbody>
@@ -384,6 +387,13 @@
     } else {
       const anonymous = document.getElementById("anonymous")
       anonymous.style.display = "block"
+    }
+
+    function deleteRow(button) {
+      var row = button.closest('tr'); // Temukan elemen <tr> terdekat.
+      if (row) {
+        row.remove(); // Hapus elemen <tr> yang ditemukan.
+      }
     }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
